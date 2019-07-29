@@ -1,19 +1,36 @@
 <html>
     <head>
         <title>The Gossip project with Sinatra</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Super Gossips</h1>
-        <p>Bienvenue</p>
-        <h2>Liste des potins : </h2>
-        <%gossips.each_with_index do |gossip, i|%>
-            <p><%=gossip.author%><br/>
-            <%=gossip.content%>
-            </p>
-            <a href="/gossips/<%=i%>/">plus d info</a>
+        <div class="jumbotron d-flex align-items-center text-white">
+            <!--center text home page-->
+            <div class="container text-center">
+                <h1>Super Gossips</h1>
+                <!--row for button col==4:lg==2 with around-->
+                <div class="justify-content-around">
+                    <a href="/gossips/new/"><button class="btn-secondary border-0 border-radius-2">Ajouter un potin</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mb-5">
+        <h1>Ma liste de potin</h1>
+    </div>
+    <!--row col12:lg4-->
+    <div class="container">
+        <div class="row justify-content-between">
+            <!--cheap-->
+            <br/>
+            <%gossips.each_with_index do |gossip, i|%>
+                <div class="col-12 col-lg-2 border box-shadow-2">
+                    <p>Auteur : <%=gossip.author%><br/>
+                    potin : <%=gossip.content%>
+                    </p>
+                    <a href="/gossips/<%=i%>/">edit</a>
+                </div>
             <%end%>
-            <br/>
-            <br/>
-        <a href="/gossips/new/">rajoutez un potin</a> 
+        </div>
+    </div>
     </body>
 </html>
