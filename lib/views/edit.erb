@@ -1,0 +1,16 @@
+<html>
+    <head>
+      <title>editer un potin</title>
+   </head>
+   <body>
+      <h1>editer le potin numero <%=params['id']%></h1>
+      <p>le formulaire te permet de changer le potin</p>
+      <form action="/gossips/<%=params['id']%>/edit/" method='POST'>
+        editer auteur :  <input type='text' name='gossip_author' value = "<%=gossip.author%>"/><br/>
+        editer potin : <input type='text' name='gossip_content' value="<%=gossip.content%>"/><br/>
+      <input type='submit'/>
+      <br/>
+      <a href='/'>revenir au menu</a>
+    </form>
+  </body>
+</html>

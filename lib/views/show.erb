@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>un potin</title>
+    </head>
+    <body>
+        <h1>Potin numero : <%=params['id']%></h1>
+        <p>auteur : <%=gossip.author%><br/>
+        potin : <%=gossip.content%>
+        </p>
+        <a href="/gossips/<%=params['id']%>/edit/">editer le potin</a>
+        <br/>
+        <h2>commentaires : </h2>
+        <%comments.each do |comment|%>
+        <p><%=comment.content%></p>
+        <%end%>
+        <br/>
+        <form action="/gossips/<%=params['id']%>/comments/" method="POST">
+            ajoute un commentaire :  <input type='text' name='gossip_comment'/><br/>
+        <input type='submit'/>
+        </form>
+        <br/>
+        <a href="/">acceuil</a>
+    </body>
+</html>
